@@ -1,0 +1,36 @@
+server:
+  port: 7070
+
+mybatis:
+    type-aliases-package: com.chang.model
+
+mapper:
+    mappers:
+        - com.chang.base.BaseMapper
+    not-empty: false
+    identity: MYSQL
+
+logging:
+  level:
+    com.chang.mapper: DEBUG
+
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://111.225.223.17:3306/oauth2_server?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+      username: root
+      password: eKBLT4v!NxvC8Rb&
+      max-active: 50
+      initial-size: 10
+      max-wait: 60000
+      min-idle: 1
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 30000
+      validation-query: select 'x'
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      filter:
+        config:
+          enabled: true

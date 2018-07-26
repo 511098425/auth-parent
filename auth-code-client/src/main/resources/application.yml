@@ -1,0 +1,15 @@
+server:
+  port: 6060
+  servlet:
+    context-path: /ui
+
+security:
+  oauth2:
+    client:
+      client-id: clientIdPassword
+      client-secret: secret
+      access-token-uri: http://localhost:8080/oauth/token
+      user-authorization-uri: http://localhost:8080/oauth/authorize
+      auto-approve-scopes:
+    resource:
+      token-info-uri: http://localhost:8080/oauth/check_token

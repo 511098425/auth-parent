@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.chang</groupId>
+    <artifactId>auth-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>auth-parent</name>
+    <description>oauth2.0认证</description>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.3.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
+        <!-- druid -->
+        <spring-druid.version>1.1.10</spring-druid.version>
+        <!-- lombok -->
+        <lombok.version>1.16.18</lombok.version>
+        <!-- mybatis-spring版本 -->
+        <mybatis-spring.version>1.3.0</mybatis-spring.version>
+        <!-- 通用mapper版本 -->
+        <mapper.version>1.1.5</mapper.version>
+        <!-- fastjson -->
+        <fastjson.version>1.2.45</fastjson.version>
+        <!-- auth2 autoconfigure -->
+        <auth2-autoconfigure.version>2.0.1.RELEASE</auth2-autoconfigure.version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <!-- spring cloud -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- druid -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${spring-druid.version}</version>
+            </dependency>
+            <!-- mybatis的spring配置 -->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring.version}</version>
+            </dependency>
+            <!--mapper-->
+            <dependency>
+                <groupId>tk.mybatis</groupId>
+                <artifactId>mapper-spring-boot-starter</artifactId>
+                <version>${mapper.version}</version>
+            </dependency>
+            <!-- lombok -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <!-- fastjson -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <!-- oauth2 autoconfigure -->
+            <dependency>
+                <groupId>org.springframework.security.oauth.boot</groupId>
+                <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+                <version>${auth2-autoconfigure.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.chang</groupId>
+                <artifactId>auth-server</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.chang</groupId>
+                <artifactId>auth-resource</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.chang</groupId>
+                <artifactId>auth-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.chang</groupId>
+                <artifactId>auth-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <modules>
+        <!-- 用户权限认证服务端 -->
+        <module>auth-server</module>
+        <!-- 资源认证服务端 -->
+        <module>auth-resource</module>
+        <!-- 通用模块 -->
+        <module>auth-common</module>
+        <!-- 授权码认证客户端 -->
+        <module>auth-code-client</module>
+    </modules>
+
+</project>
