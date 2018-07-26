@@ -45,3 +45,4 @@ client_credentials   是  否
 
 password模式调试说明：
 
+![Image text](https://github.com/511098425/auth-parent/blob/master/postman-shootscreen/20180726114711.png)
