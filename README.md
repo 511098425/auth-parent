@@ -1,7 +1,7 @@
 **springboot OAuth2.0 认证**
 
 
-使用框架：
+**使用框架：**
 
    springboot 2.0.3
    
@@ -14,7 +14,7 @@
    lombok
 
 
-模块说明：
+**模块说明：**
    
    auth-server  用户权限认证中心
    
@@ -26,22 +26,18 @@
    
    
 
-**`认证方式  是否支持  是否实现`**
+**认证方式说明：**
 
-password    是    否
+password：支持(无客户端实现,postman自行调用)
 
-authorization_code   是  是
+authorization_code：已实现(auth-code-client模块)
 
-client_credentials   是  否
-
-                                                                                                                      
-
+client_credentials：支持(无客户端实现,postman自行调用)
+                                                                                                                    
 备注：目前只实现了授权码模式客户端，后续会更新password模式、client模块两个客户端，当然现在这两种模式也可以在postman中调试
 
 
-
-
-使用说明：
+**使用说明：**
 
 1.创建数据库执行sql目录下的脚本
 
@@ -58,3 +54,5 @@ client_credentials   是  否
 获取到的token：
 
 ![Image text](https://github.com/511098425/auth-parent/blob/master/postman-shootscreen/20180726134513.png)
+
+
