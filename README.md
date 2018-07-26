@@ -51,6 +51,10 @@ client_credentials   是  否
 
 4.启动完成后在浏览器访问地址 http://localhost:6060/ui/user  会跳转到登录，输入用户名密码登录后会返回所有用户信息，目前没有过滤敏感字段，如果想加上同意授权的界面，将oauth_client_details表中的autoapprove值改为false
 
-password模式调试说明：
+**password模式调试说明：**
 
 ![Image text](https://github.com/511098425/auth-parent/blob/master/postman-shootscreen/20180726114711.png)
+
+获取到的token：
+
+![Image text](https://github.com/511098425/auth-parent/blob/master/postman-shootscreen/20180726134513.png)
