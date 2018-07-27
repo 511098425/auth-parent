@@ -1,5 +1,7 @@
 server:
   port: 7070
+  servlet:
+    context-path: /oauth2-resource
 
 mybatis:
     type-aliases-package: com.chang.model

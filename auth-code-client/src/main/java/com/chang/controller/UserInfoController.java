@@ -35,7 +35,7 @@ public class UserInfoController {
         log.info("auth : {}", JSON.toJSONString(authentication));
         log.info("认证结果：{}",JSON.toJSONString(authentication.getDetails()));
         JSONObject obj = JSON.parseObject(JSON.toJSONString(authentication.getDetails()));
-        ResponseEntity<String> responseEntity = restTemplate.getForEntity("http://localhost:7070/api/users?access_token="+obj.get("tokenValue").toString(),String.class);
+        ResponseEntity<String> responseEntity = restTemplate.getForEntity("http://localhost:7070/oauth2-resource/api/users?access_token="+obj.get("tokenValue").toString(),String.class);
         return responseEntity.getBody();
     }
 

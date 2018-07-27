@@ -103,7 +103,7 @@ public class User implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        int enable = frozen;
+        int enable = this.frozen;
         if (enable == 1){
             return true;
         }

@@ -34,3 +34,9 @@ spring:
       filter:
         config:
           enabled: true
+
+  thymeleaf:
+    cache: false
+    mode: HTML5
+    prefix: classpath:/templates/
+    suffix: .html

@@ -8,6 +8,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -36,7 +37,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authHandler);
-        auth.jdbcAuthentication().dataSource(dataSource).passwordEncoder(passwordEncoder());
+//        auth.jdbcAuthentication().dataSource(dataSource).passwordEncoder(passwordEncoder());
     }
 
     @Override
@@ -44,10 +45,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
        http .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
             .and()
             .authorizeRequests()
-            .antMatchers("/oauth/**","/login/**","/logout/**").permitAll()
+            .antMatchers("/images/**","/js/**","/css/**","/fonts/").permitAll()
+            .antMatchers("/oauth/**","/logout/**").permitAll()
             .anyRequest().authenticated()
+            .and().formLogin().loginPage("/login").failureUrl("/login?error").permitAll()
             .and()
-            .csrf().disable().cors().and().formLogin().permitAll();
+            .csrf().disable().cors();
     }
 
     @Bean
