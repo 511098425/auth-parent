@@ -20,6 +20,7 @@ import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -40,14 +41,13 @@ public class AuthenticationServerConfig extends AuthorizationServerConfigurerAda
     @Resource
     private DruidDataSource dataSource;
 
-    @Autowired(required = false)
-    private JwtAccessTokenConverter jwtAccessTokenConverter;
-
-    @Autowired(required = false)
-    private TokenEnhancer jwtTokenEnhancer;
-
     @Resource
     private WebResponseExceptionTranslator customWebResponseExceptionTranslator;
+
+    @Bean
+    public JwtAccessTokenConverter accessTokenConverter() {
+        return new JwtAccessTokenConverter();
+    }
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
@@ -57,20 +57,10 @@ public class AuthenticationServerConfig extends AuthorizationServerConfigurerAda
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints){
         endpoints.tokenStore(tokenStore())
-                 .authenticationManager(authenticationManager)
-                 .userDetailsService(userDetailsService);
-        //扩展token返回结果
-        if (jwtAccessTokenConverter != null && jwtTokenEnhancer != null) {
-            TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
-            List<TokenEnhancer> enhancerList = new ArrayList<>();
-            enhancerList.add(jwtTokenEnhancer);
-            enhancerList.add(jwtAccessTokenConverter);
-            tokenEnhancerChain.setTokenEnhancers(enhancerList);
-            //jwt
-            endpoints.tokenEnhancer(tokenEnhancerChain)
-                    .accessTokenConverter(jwtAccessTokenConverter);
-        }
-        endpoints.exceptionTranslator(customWebResponseExceptionTranslator);
+                .accessTokenConverter(accessTokenConverter())
+                .authenticationManager(authenticationManager)
+                .userDetailsService(userDetailsService)
+                .exceptionTranslator(customWebResponseExceptionTranslator);
     }
 
     @Override
