@@ -33,6 +33,7 @@
         <mapper.version>1.1.5</mapper.version>
         <!-- fastjson -->
         <fastjson.version>1.2.45</fastjson.version>
+        <common.io.version>2.6</common.io.version>
         <!-- auth2 autoconfigure -->
         <auth2-autoconfigure.version>2.0.1.RELEASE</auth2-autoconfigure.version>
     </properties>
@@ -101,6 +102,11 @@
                 <groupId>com.chang</groupId>
                 <artifactId>auth-client</artifactId>
                 <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${common.io.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

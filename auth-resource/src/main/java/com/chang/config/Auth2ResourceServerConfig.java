@@ -38,7 +38,8 @@ public class Auth2ResourceServerConfig extends ResourceServerConfigurerAdapter {
              .antMatchers("/api/**").hasRole("ADMIN")
              .antMatchers("/**").authenticated()
              .and().cors()
-             .and().csrf();
+             .and().csrf()
+             .and().httpBasic();
     }
 
     @Override

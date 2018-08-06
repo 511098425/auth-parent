@@ -36,3 +36,11 @@ spring:
       filter:
         config:
           enabled: true
+#security:
+#  oauth2:
+#    resource:
+#      jwt:
+#        key-value: |
+#          -----BEGIN PUBLIC KEY-----
+#          MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuO6+3x4DV5XQ4z16jGVLfdDolccUubUh3umRrID6Eo/h5xXD4GxuXyiXFNckqkfG/qnZGYZB0k/Il7ifEvIEzP3ifZ6mprDpFjNX9EjfpCCf3LFj8JvsPsuMcBtqyY7WywOAMyiqQNyH9vpkjPc04urtBsehv0LIW7TqCBYS8zruM90NlyyUBciphV0MQugj5DuzJwYrYLhmJNTwx82/CuVMpfFdfI/Hj3IpTisCIKi+b+YhnksMLsgHwt+9kpFmKiqJjNnqO/mreH9uq9b/TV0sQhJpQp7T+dPHaqd0usU4jobT+BSiGH1gZJiPIDsX4F7UD3Tx0+jMyzoBIhfHNwIDAQAB
+#          -----END PUBLIC KEY-----
